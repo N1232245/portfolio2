@@ -26,8 +26,6 @@ install(DIRECTORY
 
 # Install shell scripts
 install(PROGRAMS
-  scripts/activate_nav2.sh
-  scripts/nav2_helper.sh
   DESTINATION lib/${PROJECT_NAME}
 )
 
