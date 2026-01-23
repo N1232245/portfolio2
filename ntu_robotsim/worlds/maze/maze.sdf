@@ -37,10 +37,12 @@
     </plugin>
 
     <!-- Map Creator plugin (standalone package) -->
+    <!--
     <plugin
       filename="libgazebo_gt_map_creator_system.so"
       name="gazebo_gt_map_creator::GazeboGtMapCreator">
     </plugin>
+    -->
 
     <light name="sun" type="directional">
       <cast_shadows>true</cast_shadows>
