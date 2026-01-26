@@ -20,8 +20,8 @@ install(DIRECTORY
   worlds
   launch
   urdf
+  map
   DESTINATION share/${PROJECT_NAME}
-  PATTERN "map" EXCLUDE
 )
 
 # Install shell scripts
