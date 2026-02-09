@@ -1,0 +1,6 @@
+build/
+install/
+log/
+*.bag
+*.bag.active
+.DS_Store
