@@ -34,6 +34,10 @@ install(DIRECTORY launch
 
 # setup the environmental hooks for the Gazebo resource path
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/gz_sim_resource_path.dsv.in")
+install(PROGRAMS
+  scripts/waypoint_mission.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 ament_package()
 

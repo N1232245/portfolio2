@@ -12,7 +12,8 @@
   <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-
+  <exec_depend>nav2_simple_commander</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
   <!-- ROS2 python  -->
   <buildtool_depend>ament_cmake_python</buildtool_depend>
   <depend>rclpy</depend>
