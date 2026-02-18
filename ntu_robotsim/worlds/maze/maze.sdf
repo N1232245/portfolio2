@@ -4,6 +4,7 @@
     <scene>
       <grid>false</grid>
     </scene>
+
     <physics name="10ms" type="ignored">
       <max_step_size>0.01</max_step_size>
       <real_time_factor>1.0</real_time_factor>
@@ -11,29 +12,27 @@
         <collision_detector>bullet</collision_detector>
       </dart>
     </physics>
-    
-    <plugin
-      filename="ignition-gazebo-physics-system"
-      name="ignition::gazebo::systems::Physics">
+
+    <plugin filename="ignition-gazebo-physics-system"
+            name="ignition::gazebo::systems::Physics">
     </plugin>
-    <plugin
-      filename="ignition-gazebo-sensors-system"
-      name="ignition::gazebo::systems::Sensors">
+
+    <plugin filename="ignition-gazebo-sensors-system"
+            name="ignition::gazebo::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
-    <plugin
-      filename="ignition-gazebo-scene-broadcaster-system"
-      name="ignition::gazebo::systems::SceneBroadcaster">
+
+    <plugin filename="ignition-gazebo-scene-broadcaster-system"
+            name="ignition::gazebo::systems::SceneBroadcaster">
     </plugin>
-    <plugin
-      filename="ignition-gazebo-user-commands-system"
-      name="ignition::gazebo::systems::UserCommands">
+
+    <plugin filename="ignition-gazebo-user-commands-system"
+            name="ignition::gazebo::systems::UserCommands">
     </plugin>
 
     <!-- imu plugin -->
-    <plugin 
-      filename="libignition-gazebo-imu-system.so"
-      name="ignition::gazebo::systems::Imu">
+    <plugin filename="libignition-gazebo-imu-system.so"
+            name="ignition::gazebo::systems::Imu">
     </plugin>
 
     <!-- Map Creator plugin (standalone package) -->
@@ -57,11 +56,11 @@
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
-    
-    <model name='ground_plane'>
+
+    <model name="ground_plane">
       <static>true</static>
-      <link name='link'>
-        <collision name='collision'>
+      <link name="link">
+        <collision name="collision">
           <geometry>
             <plane>
               <normal>0 0 1</normal>
@@ -69,7 +68,7 @@
             </plane>
           </geometry>
         </collision>
-        <visual name='visual'>
+        <visual name="visual">
           <geometry>
             <plane>
               <normal>0 0 1</normal>
@@ -86,15 +85,16 @@
       <pose>0 0 0 0 0 0</pose>
     </model>
 
-    <!-- Maze Model -->
+    <!-- Maze Model (outer walls) -->
     <model name="maze">
       <static>true</static>
-      
+
       <!-- Outer walls label -->
-      <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+      <plugin filename="ignition-gazebo-label-system"
+              name="ignition::gazebo::systems::Label">
         <label>100</label>
       </plugin>
-      
+
       <link name="wall_1">
         <collision name="collision">
           <geometry>
@@ -187,7 +187,8 @@
     <!-- Inner walls - separate models for different labels -->
     <model name="maze_inner_wall_1">
       <static>true</static>
-      <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+      <plugin filename="ignition-gazebo-label-system"
+              name="ignition::gazebo::systems::Label">
         <label>200</label>
       </plugin>
       <link name="link">
@@ -215,7 +216,8 @@
 
     <model name="maze_inner_wall_2">
       <static>true</static>
-      <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+      <plugin filename="ignition-gazebo-label-system"
+              name="ignition::gazebo::systems::Label">
         <label>200</label>
       </plugin>
       <link name="link">
@@ -243,7 +245,8 @@
 
     <model name="maze_inner_wall_3">
       <static>true</static>
-      <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+      <plugin filename="ignition-gazebo-label-system"
+              name="ignition::gazebo::systems::Label">
         <label>200</label>
       </plugin>
       <link name="link">
@@ -271,7 +274,8 @@
 
     <model name="maze_inner_wall_4">
       <static>true</static>
-      <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+      <plugin filename="ignition-gazebo-label-system"
+              name="ignition::gazebo::systems::Label">
         <label>200</label>
       </plugin>
       <link name="link">
@@ -296,5 +300,60 @@
         <pose>-3.5 -2 0.5 0 0 0</pose>
       </link>
     </model>
+
+    <!-- Custom obstacle 1 -->
+    <model name="obstacle_box_1">
+      <static>true</static>
+      <pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.0 1.0 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.0 1.0 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Custom obstacle 2 -->
+    <model name="obstacle_box_2">
+      <static>true</static>
+      <pose>2 -2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.0 1.0 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.0 1.0 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
   </world>
 </sdf>
